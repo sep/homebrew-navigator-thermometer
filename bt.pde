@@ -46,7 +46,7 @@ void loop()
       ledState = LOW;
 
     digitalWrite(LEDPIN, ledState);
-    BlueSerial.print( 1, BYTE );
+    BlueSerial.println( "A" );
     delay(1000);
     
 }
