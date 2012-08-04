@@ -1,12 +1,9 @@
 /*******************************************\
- BlueSMiRF I/O Example
- 
- Sends and recieves single-bytes between the
- client-USB connection and the tethered
- Bluetooth device.
- 
- Jeremy Bridon
- jgbridon@gmail.com
+Temperature sending sketch
+
+Periodically send a value from an attached
+thermocouple through a serial port...which is
+supposed to be a bluetooth dongle.
 \********************************************/
  
 // Included for serial communication
@@ -31,12 +28,10 @@ void setup()
     pinMode(LEDPIN, OUTPUT);
  
     // Begin communicating with the bluetooth interface
-    Serial.begin(9600);
     BlueSerial.begin(115200);
  
     // Say we are starting the serial com
-    Serial.println("Serial start!");
-    BlueSerial.println("Serial start!");
+    BlueSerial.println("Bluetooth start!");
     
     ledState = LOW;
 }
@@ -51,7 +46,7 @@ void loop()
       ledState = LOW;
 
     digitalWrite(LEDPIN, ledState);
-    BlueSerial.print( Serial.read(), BYTE );
+    BlueSerial.print( 1, BYTE );
     delay(1000);
     
 }
