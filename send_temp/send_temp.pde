@@ -4,7 +4,7 @@ thermocouple every second.
 
 #include <OneWire.h>
 
-#define PROBEPIN 10
+#define PROBEPIN 3
 
 float currentTemp = 0;
 int ledPin = 13;
